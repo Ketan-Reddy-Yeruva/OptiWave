@@ -1,26 +1,23 @@
-from matplotlib.image import imread
-import matplotlib.pyplot as plt
 import numpy as np
 import os
 from math import log10
 import math
 import random
-import Block_SVD as svd
 
-def svd_bpso(image, p_n = None, n_iterations = None)
+def svd_bpso(image, p_n = None, n_iterations = None):
     # Check whether the input matrix is colour or gray
     if len(image.shape)>2:
         X = image.dot([0.299, 0.5870, 0.114])
-    elif len(image.shape) = 2:
+    elif len(image.shape) == 2:
         X = image
     # Initializing number of particles and iterations if they aren't specified
     if p_n is None:
         p_n = 30
-    if n_iteration is None:
+    if n_iterations is None:
         n_iterations = 5
         
     # Apply SVD on the input matrix X
-    U, sig, VT = svd.Block_SVD(X)
+    U, sig, VT = np.linalg.svd(X)
     sig = np.diag(sig)
 
     #initializing PSO parameters
