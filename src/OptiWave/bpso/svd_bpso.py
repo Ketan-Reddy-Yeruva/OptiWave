@@ -7,10 +7,10 @@ from ..svd.block_svd import Block_SVD
 
 def svd_bpso(input_matrix, p_n = None, n_iterations = None):
     # Check whether the input matrix is colour or gray
-    if len(image.shape)>2:
-        X = image.dot([0.299, 0.5870, 0.114])
-    elif len(image.shape) = 2:
-        X = image
+    if len(input_matrix.shape)>2:
+        X = input_matrix.dot([0.299, 0.5870, 0.114])
+    elif len(input_matrix.shape) == 2:
+        X = input_matrix
     # Initializing number of particles and iterations if they arent specified
     if p_n is None:
         p_n = 30
