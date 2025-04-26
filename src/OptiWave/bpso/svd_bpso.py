@@ -3,6 +3,7 @@ import os
 from math import log10
 import math
 import random
+import OptiWave.svd.Block_SVD as svd
 
 def svd_bpso(image, p_n = None, n_iterations = None):
     # Check whether the input matrix is colour or gray
@@ -17,7 +18,7 @@ def svd_bpso(image, p_n = None, n_iterations = None):
         n_iterations = 5
         
     # Apply SVD on the input matrix X
-    U, sig, VT = np.linalg.svd(X)
+    U, sig, VT = svd.Block_SVD(X)
     sig = np.diag(sig)
 
     #initializing PSO parameters
